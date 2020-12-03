@@ -1,0 +1,20 @@
+{
+  "name": "to-do-list-rest",
+  "version": "1.0.0",
+  "description": "Building a full stack web application using a REST API",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kimbrow-slice/To-Do-List-REST.git"
+  },
+  "author": "Jeffery Kimbrow",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kimbrow-slice/To-Do-List-REST/issues"
+  },
+  "homepage": "https://github.com/kimbrow-slice/To-Do-List-REST#readme"
+}
