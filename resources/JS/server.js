@@ -7,7 +7,7 @@ const { stringify } = require('querystring');
 //access the connect method of the mongoose object
 //pass in the localhost test database
 //and some options inside of another object
-mongoose.connect('mongodb+srv://WebDevAdmin:<password>@mycluster.0lxio.mongodb.net/<dbname>?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb+srv://WebDevAdmin:%4*6#uhE98nFRR$@mycluster.0lxio.mongodb.net/RESTfulAPI?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
 
 //make another constant variable called db
 //adn we set it equal to connection property of our mongoose object
