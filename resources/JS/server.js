@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const mongoDB = 'mongodb+srv://WebDevAdmin:124512AXEL@mycluster.0lxio.mongodb.net/to-do-list-db?retryWrites=true&w=majority'; 
-var Item = required('/resources/JS/models/item.js');
-var List = required('/resources/JS/models/list.js');
+var Items = required('/resources/JS/models/item.js');
+var Lists = required('/resources/JS/models/list.js');
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true}, (err, client) => {
     if(err) return console.error(err);
     //check to see if connection worked. 
