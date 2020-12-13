@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 // Make Mongoose use `findOneAndUpdate()`. Note that this option is `true`
 // by default, you need to set it to false, otherwise get a deprecation warning
 mongoose.set("useFindAndModify", false);
+const bodyParser = require('body-parser');
 const mongoDB =
   "mongodb+srv://WebDevAdmin:124512AXEL@mycluster.0lxio.mongodb.net/to-do-list-db?retryWrites=true&w=majority";
 var Item = require("./assets/JS/models/item.js");
@@ -26,6 +27,8 @@ const app = express();
 
 //allowing express to use static files in the folder name public
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}));
 
 //declare the port I am wanting to connect to
 const port = 3000;
@@ -72,15 +75,14 @@ app.get("/medium", function (request, response) {
     }
   );
 });
-app.post('/items', (req, res) => {
-  let node = new Item(req.body);
+app.post('/postItem', (request, res) => {
+  let node = new Item(request.body);
   node.save(function(error,node){
     if(error){
       res.sendStatus(500);
       return console.error(error)
     };
   })
-  console.log(req);
 });
 
 

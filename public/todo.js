@@ -29,22 +29,23 @@ async function getToDoList(){
 
 async function postItem(){
     let node =  { 
-        itemName: document.getElementsByClassName('itemName').value,
-        itemPriority: document.getElementsByClassName('itemPriority').value,
-        assignee: document.getElementsByClassName('assignee').value     
+        itemName: document.getElementById('itemName').value,
+        assignee: document.getElementById('assignee').value,   
+        itemPriority: document.getElementById('itemPriority').value,
+        completionStatus: document.getElementById('completed').value
       }
             
-    let reqOptions = {
+    let requestOptions = {
     method: "POST",
     body: JSON.stringify(node),
     headers : { "Content-Type": "application/json"}
     }
 
-    const response = await fetch("/items", reqOptions);
+    const response = await fetch("/postItem", requestOptions);
     if(response.status != 200){
     throw Error("Error!");
     }
     
-    return true;
+    return node;
 }
 

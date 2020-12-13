@@ -13,7 +13,7 @@ const itemSchema = new Schema({
     
     }, 
         {
-    timeStamps : true
+    timestamps : true
         }
     );
     module.exports = mongoose.model("Item", itemSchema);
