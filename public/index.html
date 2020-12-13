@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <!--META DATA TAGS-->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Jeff, Jeffery, Kimbrow">
+    <meta name="description" content="">
+    <!--TITLE-->
+    <title>To Do List</title>
+    <!--STYLESHEETS-->
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="icon" type="image/png" href="imgs/favicon.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Andika+New+Basic&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <!--NAV-->
+
+
+
+
+
+
+
+
+
+    <!--MAIN CONTENT-->
+    <section>
+        <div id="container">
+            <div class="row">
+                <div class="col-md-offset-1 col-md-11">
+                    <a href="https://kimbrow-slice.github.io/JeffKimbrow/">
+                        <img class="logo" src="imgs/banner.png" alt="my logo"></a>
+
+                    <h2 class="title">What is there <strong>toDo</strong>?</h2>
+
+                </div>
+                
+            </div>
+            <div class="col-md-offset-1 col-md-11">
+                <div class="updateItem">
+                    <form>
+                        <input class="itemName" type="text" placeholder="Task Name">
+                        <input class="assignee" type="text" placeholder="Assignee">
+                        <input class= "itemPriority" list="itemPriority" placeholder="Priority">
+                        <datalist id="itemPriority">
+                        <option value="Low">
+                        <option value="Medium">
+                        <option value="High">
+                        </datalist>
+                        <br>
+                        <br>
+                        <button class="button" onclick="postItem()">Create a task!</button>
+                    </form>
+                </div>
+                <div id="myList">
+                <button class="button" onclick="clickButton()">Let's fetch the items in your list!</button>
+                    <h3>Current Task(s)</h3>
+                </div>
+            </div>
+        </div>
+
+</section>
+
+
+
+
+
+
+
+    <!--FOOTER-->
+
+
+
+
+
+    <!--SCRIPTS-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="todo.js"></script>
+    <script src="post.js"></script>
+    
+
+</body>
+
+</html>

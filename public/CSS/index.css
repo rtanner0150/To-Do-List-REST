@@ -1,0 +1,43 @@
+.title{
+    font-family: 'Andika New Basic', sans-serif;
+    font-size: 40px;
+    font-weight: 100;
+    color: #59606d;
+    letter-spacing: 1mm;
+    padding: 20px 0 20px 0;
+    text-align: center;
+}
+.button{
+    background-color: #59606d;
+    border: none;
+    color: #ffffff;
+    padding: 5px;
+    text-align: center;
+    display: block;
+    font-size: 16px;
+    margin: 0 auto;
+    font-family: 'Andika New Basic', sans-serif;
+}
+.button#hover{
+    text-decoration: none;
+    
+}
+
+.logo {
+    width: 100%;
+    height: auto;
+    background-position: center;
+    position: relative;
+}
+
+@media screen and (max-width: 700px) {
+    .logo {
+        width: 100%;
+        height: auto;
+        background-position: center;
+    }
+}
+#myList{
+    color:blue;
+    padding: 40px 0 40px 0;
+}
