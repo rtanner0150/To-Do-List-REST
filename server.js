@@ -27,6 +27,7 @@ const app = express();
 
 //allowing express to use static files in the folder name public
 app.use(express.static(path.join(__dirname, 'public')));
+//
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
@@ -75,6 +76,7 @@ app.get("/medium", function (request, response) {
     }
   );
 });
+//creating a new item into list
 app.post('/postItem', (request, res) => {
   let node = new Item(request.body);
   node.save(function(error,node){

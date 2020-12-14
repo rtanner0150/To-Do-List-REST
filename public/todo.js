@@ -45,7 +45,7 @@ async function postItem(){
     if(response.status != 200){
     throw Error("Error!");
     }
-    
+    console.log('Hey Look Willie, I made it.');
     return node;
 }
 
