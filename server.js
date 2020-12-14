@@ -83,7 +83,6 @@ app.post('/postItem', (request, res) => {
     if(error){
       res.sendStatus(500);
       return console.error(error)
-      
     };
     return node;
   })

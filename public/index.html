@@ -14,6 +14,8 @@
     <link rel="icon" type="image/png" href="imgs/favicon.png">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Andika+New+Basic&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
 
 </head>
 
@@ -44,24 +46,34 @@
             <div class="col-md-offset-1 col-md-11">
                 <div class="updateItem">
                     <hr>
-                    <form>
-                        <input id="itemName" type="text" placeholder="Task Name">
-                        <input id="assignee" type="text" placeholder="Assignee">
-                        <input list="itemPriority" placeholder="Priority">
-                        <datalist id="itemPriority">
-                        <option value="High">
-                        <option value="Medium">
-                        <option value="Low">
-                        </datalist>
-                        <input list="completed" placeholder="Completion Status">
-                        <datalist id="completed">
-                            <option value="true">
-                            <option value="false">
-                        </datalist>
+            
+                        <br>
+                        <br>
+                        <label for="itemName">Item Name: </label>
+                        <input id="itemName" type="text">
+                        <br>
+                        <br>
+                        <label for="assignee">Assignee: </label>
+                        <input id="assignee" type="text">
+                        <br>
+                        <br>
+                        <label for="itemPriority">Select a priority: </label>
+                        <select id="itemPriority">
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label for="completed">Completion Status: </label>
+                        <select id="completed">
+                            <option value="true">True</option>
+                            <option value="false">False</option>
+                            </select>
                         <br>
                         <br>
                         <button class="button" onclick="postItem()">Create a task!</button>
-                    </form>
+                    
                     <hr>
                 </div>
                 <div id="myList">

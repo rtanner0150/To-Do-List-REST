@@ -8,7 +8,7 @@
     text-align: center;
 }
 .button{
-    background-color: #59606d;
+    background-color: #fb4d46;
     border: none;
     color: #ffffff;
     padding: 5px;
@@ -38,6 +38,16 @@
     }
 }
 #myList{
-    color:blue;
+    color: #fb4d46;
+    padding: 40px 0 40px 0;
+}
+li{
+    color: #59606d;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.updateItem{
+    font-family: 'Montserrat', sans-serif;
+    color: #fb4d46;
     padding: 40px 0 40px 0;
 }
