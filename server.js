@@ -20,7 +20,7 @@ mongoose.connect(
 const express = require("express");
 //declaring the variable path and using that to serve back a HTML file later in code
 const path = require('path');
-const { request } = require("http");
+
 
 //creates a new express application
 const app = express();
