@@ -43,23 +43,25 @@
             </div>
             <div class="col-md-offset-1 col-md-11">
                 <div class="updateItem">
-                        <hr>
+                    <hr>
+                    <form>
                         <input id="itemName" type="text" placeholder="Task Name">
                         <input id="assignee" type="text" placeholder="Assignee">
                         <input list="itemPriority" placeholder="Priority">
                         <datalist id="itemPriority">
-                        <option value="Low">
-                        <option value="Medium">
                         <option value="High">
+                        <option value="Medium">
+                        <option value="Low">
                         </datalist>
                         <input list="completed" placeholder="Completion Status">
                         <datalist id="completed">
-                            <option value="True">
-                            <option value="False">
+                            <option value="true">
+                            <option value="false">
                         </datalist>
                         <br>
                         <br>
                         <button class="button" onclick="postItem()">Create a task!</button>
+                    </form>
                     <hr>
                 </div>
                 <div id="myList">

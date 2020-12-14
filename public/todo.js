@@ -1,3 +1,4 @@
+//this function is used to GET with my API
 async function getToDoList(){
     let requestOptions = {
     method: "GET",
@@ -12,7 +13,7 @@ async function getToDoList(){
     return body;
     
     }
-    
+    //this function is used for when a button is clicked and what to retrieve 
     function clickButton(){
     getToDoList().then(function(body){
         for(let i =0; i < body.length; i++){
@@ -26,7 +27,7 @@ async function getToDoList(){
     console.log(err);
     });
 }
-
+//this function is used when trying to make a POST request 
 async function postItem(){
     let node =  { 
         itemName: document.getElementById('itemName').value,
@@ -45,7 +46,5 @@ async function postItem(){
     if(response.status != 200){
     throw Error("Error!");
     }
-    console.log('Hey Look Willie, I made it.');
     return node;
 }
-
