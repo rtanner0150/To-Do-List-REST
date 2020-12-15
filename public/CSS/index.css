@@ -24,7 +24,7 @@
 }
 
 .logo {
-    width: 100%;
+    width: 90%;
     height: auto;
     background-position: center;
     position: relative;
@@ -62,8 +62,7 @@ select{
 .outro {
     font-size: 15px;
     font-family: 'Commissioner', sans-serif;
-    margin: 100px 0 0 auto;
-    padding: 100px;
+    margin-top: 150px;
     color: #59606d;
 }
 
@@ -92,6 +91,5 @@ i:hover {
     color: #414141;
 }
 .footer {
-
     text-align: center;
   }
