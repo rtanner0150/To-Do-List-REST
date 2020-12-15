@@ -65,7 +65,7 @@ async function postItem(){
 
 //this is a function I am creating to be able to EDIT/PUT items within my current List 
 
-// async function deleteItem(){
+// async function editeItem(){
 //   requestOptions ={
 //       method: "PUT",
 //       body: JSON.stringify()
