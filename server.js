@@ -63,6 +63,13 @@ Item.find(function(err, items){
 
     });
 
+app.get('/items/:id', (request, response) => {
+  Item.findOne({_id: request.params.id}).exec((err, item) => {
+    if (err) return console.error(err);
+    response.send(item);
+  })
+});
+
 //getting all items that have the priority set to medium out of list
 //127.0.0.1:3000/medium
 app.get("/medium", function (request, response) {
@@ -87,6 +94,27 @@ app.post('/postItem', (request, res) => {
     return node;
   })
 });
+//edit/updating an item from the list
+app.put('/edit', function (req, res) {
+  res.send('Got a PUT request from /edit')
+  });
+
+
+
+
+//deleteing an item from list
+app.delete('/deleteItem'), (request, res) => {
+  res.send('Got a DELETE request at /editItem')
+};
+
+
+
+
+
+
+
+
+
 
 
 /*

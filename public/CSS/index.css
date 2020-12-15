@@ -40,10 +40,12 @@
 #myList{
     color: #fb4d46;
     padding: 40px 0 40px 0;
+    text-align: center;
 }
-li{
+p{
     color: #59606d;
     font-family: 'Montserrat', sans-serif;
+    text-align: center; 
 }
 
 .createItem{
@@ -51,7 +53,45 @@ li{
     color: #fb4d46;
     padding: 40px 0 40px 0;
     font-size: 16px;
+    text-align: center;
 }
 select{
     font-size: 16px;
+    text-align: center;
 }
+.outro {
+    font-size: 15px;
+    font-family: 'Commissioner', sans-serif;
+    margin: 100px 0 0 auto;
+    padding: 100px;
+    color: #59606d;
+}
+
+
+
+
+.social-media {
+    font-size: 40px;
+}
+
+i {
+    font-size: 40px;
+    color: #C7C7C7;
+    text-align: center;
+    margin: 40px;
+    -webkit-transition: all 0.8s ease-in;
+    transition: all 0.8s ease-in;
+}
+
+i:hover {
+    color: #59606d;
+    ;
+}
+
+.copyright {
+    color: #414141;
+}
+.footer {
+
+    text-align: center;
+  }

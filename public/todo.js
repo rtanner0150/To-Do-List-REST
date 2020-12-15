@@ -13,15 +13,29 @@ async function getToDoList(){
     return body;
     
     }
+
+    async function getIndiv(id) {
+        let requestOptions = {
+            method: 'GET', 
+            headers: {'Content-Type': 'application/json'}
+        }
+
+        const response = await fetch('/items/' + id, requestOptions);
+        const body = await response.json();
+        if (response.status!= 200){
+            throw Error(body.message);
+        }
+        return body;
+    }
+
     //this function is used for when a button is clicked and what to retrieve 
     function clickButton(){
     getToDoList().then(function(body){
         for(let i =0; i < body.length; i++){
-            let node = document.createElement('li');
-            document.body.appendChild(node).innerHTML = "Task Name: " + body[i].itemName + " | " + "Who's Task: " + body[i].assignee + " | " + "Importance: " + body[i].itemPriority + " | " + "Completed:" + body[i].completionStatus
+            let node = document.createElement('p');
+            node.setAttribute('data-id', body[i]._id);
+            document.body.appendChild(node).innerHTML = "Task Name: " + body[i].itemName + " | " + "Who's Task: " + body[i].assignee + " | " + "Importance: " + body[i].itemPriority + " | " + "Completed: " + body[i].completionStatus + ' | <a href="edit.html/' + body[i]._id + '">Edit</a>';
         }
-        // let myObjs = JSON.stringify(body);
-        // document.body.append(myObjs);
     console.log("Didn't think we would make it this far");
     }).catch(function(err){
     console.log(err);
@@ -49,4 +63,12 @@ async function postItem(){
     return node;
 }
 
+//this is a function I am creating to be able to EDIT/PUT items within my current List 
+
+// async function deleteItem(){
+//   requestOptions ={
+//       method: "PUT",
+//       body: JSON.stringify()
+//   }
+// }
 
