@@ -82,6 +82,6 @@ async function editeItem(){
     if (response.status != 200){
         throw Error("We were unsuccessful with your update");
     }
-    return true;
+    return selectedItem;
 }
 
