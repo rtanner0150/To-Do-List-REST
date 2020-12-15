@@ -30,11 +30,12 @@ async function getToDoList(){
 
     //this function is used for when a button is clicked and what to retrieve 
     function clickButton(){
+    let listContainer = document.getElementById('myList');
     getToDoList().then(function(body){
         for(let i =0; i < body.length; i++){
             let node = document.createElement('p');
             node.setAttribute('data-id', body[i]._id);
-            document.body.appendChild(node).innerHTML = "Task Name: " + body[i].itemName + " | " + "Who's Task: " + body[i].assignee + " | " + "Importance: " + body[i].itemPriority + " | " + "Completed: " + body[i].completionStatus + ' | <a href="edit.html/' + body[i]._id + '">Edit</a>';
+            listContainer.appendChild(node).innerHTML = "Task Name: " + body[i].itemName + " | " + "Who's Task: " + body[i].assignee + " | " + "Importance: " + body[i].itemPriority + " | " + "Completed: " + body[i].completionStatus + ' | <a href="edit.html/' + body[i]._id + '">Edit</a>';
         }
     console.log("Didn't think we would make it this far");
     }).catch(function(err){
