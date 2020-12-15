@@ -1,3 +1,7 @@
+const url_string = window.location.href;
+        const url = new URL(url_string);
+        const itemId = url.searchParams.get('id');
+
 //this function is used to GET with my API
 async function getToDoList(){
     let requestOptions = {
@@ -78,10 +82,43 @@ async function editItem(){
     body: JSON.stringify(selectedItem),
     headers: {"Content-Type": "application/json"}
     }
-    const response = await fetch('./edit.html?id='+ header);
+    const response = await fetch('/update/' + itemId, header);
     if (response.status != 200){
         throw Error("We were unsuccessful with your update");
     }
+    console.log('Hey, we did it!');
     return selectedItem;
 }
 
+//deleteing an item from list and DB
+async function deleteItem(){
+    let requestOptions = {
+        method: "DELETE",
+        headers: {"Content-Type": "application/json"}
+    }
+    const response = await fetch ('update/' , requestOptions);
+    if(response.status != 204){
+        throw Error('Cannot delete your task');
+    }
+    return true;
+}
+
+//get my scroll button
+mybutton = document.getElementById("myScroll");
+
+// When the user scrolls down 30px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 25 || document.documentElement.scrollTop > 25) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}

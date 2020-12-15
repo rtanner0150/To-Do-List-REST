@@ -20,6 +20,8 @@ mongoose.connect(
 const express = require("express");
 //declaring the variable path and using that to serve back a HTML file later in code
 const path = require('path');
+const item = require("./assets/JS/models/item.js");
+const { response } = require("express");
 
 
 //creates a new express application
@@ -95,15 +97,20 @@ app.post('/postItem', (request, res) => {
   })
 });
 //edit/updating an item from the list
-app.put('./edit.html?id=', function (req, res) {
+app.put('/update/:id', function (req, res) {
   let updated = new Item(req.body);
-  updated.save(function(error, updated){
-    if(error){
+  Item.findOne({_id: req.params.id}).exec((err, item) => {
+    if (err) return console.error(err);
+    item.itemName = updated.itemName;
+    item.itemPriority = updated.itemPriority;
+    item.assignee = updated.assignee;
+    item.completionStatus = updated.completionStatus;
+    try {
+      res.sendStatus(200);
+      item.save();
+    } catch{
       res.sendStatus(500);
-      return console.error(error)
-    };
-    console.log('did we make it here?');
-    return updated;
+    }
   })
   });
 
@@ -111,8 +118,13 @@ app.put('./edit.html?id=', function (req, res) {
 
 
 //deleteing an item from list
-app.delete('/deleteItem'), (request, res) => {
-  res.send('Got a DELETE request at /editItem')
+app.delete('/update/:id'), async (request, res) => {
+  try {
+    await Item.deleteOne({_id: request.params.id});
+    res.sendStatus(204);
+  } catch {
+    res.sendStatus(404);
+  }
 };
 
 

@@ -44,7 +44,6 @@
                 <a class="home" href="index.html"><i class="fas fa-arrow-alt-circle-left"></i></a>  
                 <div class="createItem">
                     <hr>
-
                         <br>
                         <br>
                         <label for="itemName">Item Name: </label>
@@ -71,15 +70,29 @@
                         <br>
                         <br>
                         <button class="button" onclick="editItem()">Update an Item from your List!</button>
-                    
+                        <br>
+                        <br>
+                        <br>
+                        <button class="button" id="delete" onclick="deleteItem()"><i class="fas fa-trash"></i></button>
+                       
+                        <br>
+                        <br>
+                        
                     <hr>
+                    
                 </div>
+                
                 <div id="myList">
-                <button class="button" onclick="clickButton()">Let's fetch the items in your list!</button>
-                    <h3>Current Task(s)</h3>
+                
+                    <h3>Current Task(s)</h3> 
+                    <button class="button" onclick="clickButton()">Let's fetch the items in your list!</button>
+                    <br>
+                    <br>
                 </div>
+                <a class="top" onclick="topFunction()" id="myScroll"><i class="fas fa-arrow-alt-circle-up"></i></a>
             </div>
         </div>
+        
 
 </section>
 
@@ -115,6 +128,21 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/fc5d2b5d29.js" crossorigin="anonymous"></script>
     <script src="todo.js"></script>
+    <script>
+        var itemName = document.getElementById('itemName');
+        var assignee = document.getElementById('assignee');
+        var priority =document.getElementById('itemPriority');
+        var completed = document.getElementById('completed');
+        getIndiv(itemId).then((item) => {
+           itemName.value = item.itemName; 
+           priority.value =  item.itemPriority;
+           assignee.value = item.assignee; 
+           completed.value =  item.completionStatus ;
+        }).catch((err) =>{
+            console.log(err);
+                });
+    </script>
+
     
 
 </body>
