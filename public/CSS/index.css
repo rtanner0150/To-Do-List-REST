@@ -6,7 +6,11 @@
     letter-spacing: 1mm;
     padding: 20px 0 20px 0;
     text-align: center;
+
+
+
 }
+
 .button{
     background-color: #fb4d46;
     border: none;
@@ -42,6 +46,13 @@
     padding: 40px 0 40px 0;
     text-align: center;
 }
+/* a{
+    color: #59606d;
+    text-decoration: none;
+}
+a:hover{
+    color:#fb4d46;
+} */
 p{
     color: #59606d;
     font-family: 'Montserrat', sans-serif;
@@ -65,8 +76,9 @@ select{
     margin-top: 150px;
     color: #59606d;
 }
-
-
+.home{
+    float: left;
+}
 
 
 .social-media {

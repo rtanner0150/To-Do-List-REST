@@ -95,7 +95,7 @@ app.post('/postItem', (request, res) => {
   })
 });
 //edit/updating an item from the list
-app.put('/update/', function (req, res) {
+app.put('./edit.html?id=', function (req, res) {
   let updated = new Item(req.body);
   updated.save(function(error, updated){
     if(error){

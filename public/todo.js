@@ -66,7 +66,7 @@ async function postItem(){
 
 //this is a function I am creating to be able to EDIT/PUT items within my current List 
 
-async function editeItem(){
+async function editItem(){
   let selectedItem = {
     itemName: document.getElementById('itemName').value,
     assignee: document.getElementById('assignee').value,   
@@ -75,10 +75,10 @@ async function editeItem(){
       }
   let header = {
     method: "PUT",
-    body: JSON.stringify(update),
+    body: JSON.stringify(selectedItem),
     headers: {"Content-Type": "application/json"}
     }
-    const response = await fetch('/update/' + id + header);
+    const response = await fetch('./edit.html?id='+ header);
     if (response.status != 200){
         throw Error("We were unsuccessful with your update");
     }
