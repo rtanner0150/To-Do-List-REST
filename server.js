@@ -96,10 +96,10 @@ app.post('/postItem', (request, res) => {
 });
 //edit/updating an item from the list
 app.put('/update/', function (req, res) {
-  let updated = new Item(request.body);
+  let updated = new Item(req.body);
   updated.save(function(error, updated){
     if(error){
-      res.sendStatus(404);
+      res.sendStatus(500);
       return console.error(error)
     };
     console.log('did we make it here?');
