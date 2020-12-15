@@ -35,7 +35,7 @@ async function getToDoList(){
         for(let i =0; i < body.length; i++){
             let node = document.createElement('p');
             node.setAttribute('data-id', body[i]._id);
-            listContainer.appendChild(node).innerHTML = "Task Name: " + body[i].itemName + " | " + "Who's Task: " + body[i].assignee + " | " + "Importance: " + body[i].itemPriority + " | " + "Completed: " + body[i].completionStatus + ' | <a href="edit.html/' + body[i]._id + '">Edit</a>';
+            listContainer.appendChild(node).innerHTML = "Task Name: " + body[i].itemName + " | " + "Who's Task: " + body[i].assignee + " | " + "Importance: " + body[i].itemPriority + " | " + "Completed: " + body[i].completionStatus + ' | <a href="edit.html/update/' + body[i]._id + '">Edit</a>';
         }
     console.log("Didn't think we would make it this far");
     }).catch(function(err){
@@ -66,10 +66,22 @@ async function postItem(){
 
 //this is a function I am creating to be able to EDIT/PUT items within my current List 
 
-// async function editeItem(){
-//   requestOptions ={
-//       method: "PUT",
-//       body: JSON.stringify()
-//   }
-// }
+async function editeItem(){
+  let selectedItem = {
+    itemName: document.getElementById('itemName').value,
+    assignee: document.getElementById('assignee').value,   
+    itemPriority: document.getElementById('itemPriority').value,
+    completionStatus: document.getElementById('completed').value
+      }
+  let header = {
+    method: "PUT",
+    body: JSON.stringify(update),
+    headers: {"Content-Type": "application/json"}
+    }
+    const response = await fetch('/update/' + id + header);
+    if (response.status != 200){
+        throw Error("We were unsuccessful with your update");
+    }
+    return true;
+}
 
