@@ -31,6 +31,7 @@ async function getIndiv(id) {
   return body;
 }
 
+
 //this function is used for when a button is clicked and what to retrieve
 function clickButton() {
   let listContainer = document.getElementById("myList");
@@ -55,6 +56,7 @@ function clickButton() {
           body[i]._id +
           '">Edit</a>';
       }
+      
       console.log("Didn't think we would make it this far");
     })
     .catch(function (err) {
@@ -75,11 +77,13 @@ async function postItem() {
     body: JSON.stringify(node),
     headers: { "Content-Type": "application/json" },
   };
-
+  alert('Your item has been created!');
   const response = await fetch("/postItem", requestOptions);
+  
   if (response.status != 200) {
     throw Error("Error!");
   }
+  
   return node;
 }
 
@@ -98,6 +102,7 @@ async function editItem() {
     headers: { "Content-Type": "application/json" },
   };
   const response = await fetch("/update/" + itemId, header);
+  alert('Your item has been updated!');
   if (response.status != 200) {
     throw Error("We were unsuccessful with your update");
   }
@@ -106,34 +111,30 @@ async function editItem() {
 }
 
 //deleteing an item from list and DB
-async function deleteItem(item) {
+async function deleteItem() {
   let requestOptions = {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
   }
 
-  const response = await fetch('/delete/' + itemId , requestOptions).then((response) => {
-    if (response.status != 204) {
-      throw Error("Cannot delete your item from list");
-    }
-}).catch((err) => {
-    console.error(err); // handle error
-});
-return item;
+  const response = await fetch("/delete/"+ itemId  , requestOptions); 
+  if (response.status != 204) {
+    throw Error("Cannot delete your item from list");
+  }
+  window.location.href = 'index.html';
+  return true;
 }
-
-
 
 //Creating my scroll to top button
 mybutton = document.getElementById("myScroll");
 
-// When the user scrolls down 30px from the top of the document, show the button
+// When the user scrolls down 150px from the top of the document, show the button
 window.onscroll = function () {
   scrollFunction();
 };
 
 function scrollFunction() {
-  if (document.body.scrollTop > 25 || document.documentElement.scrollTop > 25) {
+  if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
     mybutton.style.display = "block";
   } else {
     mybutton.style.display = "none";

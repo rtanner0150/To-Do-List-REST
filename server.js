@@ -105,6 +105,7 @@ app.put("/update/:id", function (req, res) {
     try {
       res.sendStatus(200);
       item.save();
+     
     } catch {
       res.sendStatus(500);
     }
@@ -112,14 +113,16 @@ app.put("/update/:id", function (req, res) {
 });
 
 //deleteing an item from list
-app.delete("/delete/:id"),
+app.delete("/delete/:id" ,
   async (request, res) => {
     try {
       await Item.deleteOne({ _id: request.params.id });
       res.sendStatus(204);
-    } catch {
+    } 
+    catch { 
+      console.error(err);
       res.sendStatus(404);
-      console.log('test');
+     
     }
-  };
+  });
 
