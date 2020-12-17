@@ -43,18 +43,18 @@ function clickButton() {
         listContainer.appendChild(node).innerHTML =
           "Task Name: " +
           body[i].itemName +
-          " | " +
+          " <br><br><br> " +
           "Who's Task: " +
           body[i].assignee +
-          " | " +
+          " <br><br><br> " +
           "Importance: " +
           body[i].itemPriority +
-          " | " +
+          " <br><br><br> " +
           "Completed: " +
-          body[i].completionStatus +
-          '<a href="./edit.html?id=' +
+          body[i].completionStatus  + "<br>" +
+          '<a id="edit" href="./edit.html?id=' +
           body[i]._id +
-          '"><i class="fas fa-pen-alt fa-lg"></i></a>';
+          '"><i class="fas fa-pen-alt fa-lg"></i>edit</a>' + "<br>";
       }
       
       console.log("Didn't think we would make it this far");

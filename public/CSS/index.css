@@ -64,10 +64,16 @@ select {
   font-size: 15px;
   font-family: "Commissioner", sans-serif;
   margin-top: 150px;
-  color: #59606d;
+  color: #323232;
 }
 .home {
   float: left;
+}
+#edit{
+  color:#fb4d46;
+}
+#edit:hover{
+  color:#414141;
 }
 .top {
   display: none;
@@ -79,7 +85,7 @@ select {
   padding: 15px;
   font-size: 18px;
   float: right;
-  color: #59606d;
+  color: #323232;
   font-family: "Montserrat", sans-serif;
   text-align: center;
 }
@@ -102,11 +108,11 @@ i {
 }
 
 i:hover {
-  color: #59606d;
+  color: #323232;
 }
 
 .copyright {
-  color: #414141;
+  color: #323232;
 }
 .footer {
   text-align: center;
