@@ -15,6 +15,11 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/kimbrow-slice/To-Do-List-REST/issues"
+  },  
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.11.8",
+    "path": "^0.12.7"
   },
   "homepage": "https://github.com/kimbrow-slice/To-Do-List-REST#readme"
 }
