@@ -149,3 +149,13 @@ function topFunction() {
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
+window.onload = function() {
+  let isGenerated = false;
+  listGenerate();
+  }
+  function listGenerate(){
+  if(listGenerated === false){
+  isGenerated = true;
+  getToDoList(); //function that actually does the work of generating your list
+  }
+  }
