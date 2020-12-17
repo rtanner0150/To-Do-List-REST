@@ -107,6 +107,7 @@ async function editItem() {
     throw Error("We were unsuccessful with your update");
   }
   console.log("Hey, we did it!");
+  window.location.href = 'index.html';
   return selectedItem;
 }
 
