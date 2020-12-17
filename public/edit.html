@@ -52,11 +52,11 @@
             <br />
             <br />
             <label for="itemName">Item Name: </label>
-            <input id="itemName" type="text" />
+            <input id="itemName" type="text" maxlength="100" />
             <br />
             <br />
             <label for="assignee">Assignee: </label>
-            <input id="assignee" type="text" />
+            <input id="assignee" type="text" maxlength="30" onkeypress="return /^[a-zA-Z\s]*$/i.test(event.key)" />
             <br />
             <br />
             <label for="itemPriority">Select a priority: </label>
@@ -69,8 +69,8 @@
             <br />
             <label for="completed">Completion Status: </label>
             <select id="completed">
-              <option value="true">True</option>
               <option value="false">False</option>
+              <option value="true">True</option>
             </select>
             <br />
             <br />
@@ -80,8 +80,8 @@
             <br />
             <br />
             <br />
-            <button class="button" id="delete" onclick="deleteItem()">DELETE
-              <!-- <i class="fas fa-trash"></i> -->
+            <button class="button" id="delete" onclick="deleteItem()">
+              <i class="fas fa-trash"></i>
             </button>
             <br />
             <br />
@@ -166,6 +166,6 @@
           console.log(err);
         });
     </script>
-    <script>alert('Clicking Delete is permenant');</script>
+    <script>alert('CLICKING DELETE IS PERMANENT AND CANNOT BE REVERSED');</script>
   </body>
 </html>

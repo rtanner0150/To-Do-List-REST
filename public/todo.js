@@ -52,9 +52,9 @@ function clickButton() {
           " | " +
           "Completed: " +
           body[i].completionStatus +
-          ' | <a href="./edit.html?id=' +
+          '<a href="./edit.html?id=' +
           body[i]._id +
-          '">Edit</a>';
+          '"><i class="fas fa-pen-alt fa-lg"></i></a>';
       }
       
       console.log("Didn't think we would make it this far");
@@ -78,6 +78,7 @@ async function postItem() {
     headers: { "Content-Type": "application/json" },
   };
   alert('Your item has been created!');
+  window.location.href = 'index.html';
   const response = await fetch("/postItem", requestOptions);
   
   if (response.status != 200) {
