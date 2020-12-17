@@ -31,6 +31,7 @@ async function getIndiv(id) {
   return body;
 }
 
+
 //this function is used for when a button is clicked and what to retrieve
 function clickButton() {
   let listContainer = document.getElementById("myList");
@@ -42,19 +43,20 @@ function clickButton() {
         listContainer.appendChild(node).innerHTML =
           "Task Name: " +
           body[i].itemName +
-          " | " +
+          " <br><br><br> " +
           "Who's Task: " +
           body[i].assignee +
-          " | " +
+          " <br><br><br> " +
           "Importance: " +
           body[i].itemPriority +
-          " | " +
+          " <br><br><br> " +
           "Completed: " +
-          body[i].completionStatus +
-          ' | <a href="./edit.html?id=' +
+          body[i].completionStatus  + "<br>" +
+          '<a id="edit" href="./edit.html?id=' +
           body[i]._id +
-          '">Edit</a>';
+          '"><i class="fas fa-pen-alt fa-2x"></i></a>' + "<br>";
       }
+      
       console.log("Didn't think we would make it this far");
     })
     .catch(function (err) {
@@ -75,11 +77,14 @@ async function postItem() {
     body: JSON.stringify(node),
     headers: { "Content-Type": "application/json" },
   };
-
+  alert('Your item has been created!');
+  window.location.href = 'index.html';
   const response = await fetch("/postItem", requestOptions);
+  
   if (response.status != 200) {
     throw Error("Error!");
   }
+  
   return node;
 }
 
@@ -98,42 +103,40 @@ async function editItem() {
     headers: { "Content-Type": "application/json" },
   };
   const response = await fetch("/update/" + itemId, header);
+  alert('Your item has been updated!');
   if (response.status != 200) {
     throw Error("We were unsuccessful with your update");
   }
   console.log("Hey, we did it!");
+  window.location.href = 'index.html';
   return selectedItem;
 }
 
 //deleteing an item from list and DB
-async function deleteItem(item) {
+async function deleteItem() {
   let requestOptions = {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
   }
 
-  const response = await fetch('/delete/' + itemId , requestOptions).then((response) => {
-    if (response.status != 204) {
-      throw Error("Cannot delete your item from list");
-    }
-}).catch((err) => {
-    console.error(err); // handle error
-});
-return item;
+  const response = await fetch("/delete/"+ itemId  , requestOptions); 
+  if (response.status != 204) {
+    throw Error("Cannot delete your item from list");
+  }
+  window.location.href = 'index.html';
+  return true;
 }
-
-
 
 //Creating my scroll to top button
 mybutton = document.getElementById("myScroll");
 
-// When the user scrolls down 30px from the top of the document, show the button
+// When the user scrolls down 150px from the top of the document, show the button
 window.onscroll = function () {
   scrollFunction();
 };
 
 function scrollFunction() {
-  if (document.body.scrollTop > 25 || document.documentElement.scrollTop > 25) {
+  if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
     mybutton.style.display = "block";
   } else {
     mybutton.style.display = "none";
@@ -145,3 +148,14 @@ function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
+
+window.onload = function() {
+  let isGenerated = false;
+  listGenerate();
+  }
+  function listGenerate(){
+  if(listGenerated === false){
+  isGenerated = true;
+  getToDoList(); //function that actually does the work of generating your list
+  }
+  }

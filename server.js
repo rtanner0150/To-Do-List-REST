@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 // by default, you need to set it to false, otherwise get a deprecation warning
 mongoose.set("useFindAndModify", false);
 const bodyParser = require("body-parser");
+let port = process.env.PORT || 3000;
 const mongoDB =
   "mongodb+srv://WebDevAdmin:124512AXEL@mycluster.0lxio.mongodb.net/to-do-list-db?retryWrites=true&w=majority";
 var Item = require("./assets/JS/models/item.js");
@@ -33,7 +34,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 //declare the port I am wanting to connect to
-const port = 3000;
+// const port = 3000;
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error: "));
@@ -105,6 +106,7 @@ app.put("/update/:id", function (req, res) {
     try {
       res.sendStatus(200);
       item.save();
+     
     } catch {
       res.sendStatus(500);
     }
@@ -112,14 +114,16 @@ app.put("/update/:id", function (req, res) {
 });
 
 //deleteing an item from list
-app.delete("/delete/:id"),
+app.delete("/delete/:id" ,
   async (request, res) => {
     try {
       await Item.deleteOne({ _id: request.params.id });
       res.sendStatus(204);
-    } catch {
+    } 
+    catch { 
+      console.error(err);
       res.sendStatus(404);
-      console.log('test');
+     
     }
-  };
+  });
 

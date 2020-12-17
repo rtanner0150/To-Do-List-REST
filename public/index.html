@@ -2,6 +2,15 @@
 <html lang="en-us">
   <head>
     <!--META DATA TAGS-->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TP1NR3DDJB"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TP1NR3DDJB');
+  </script>
 
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -30,7 +39,7 @@
     />
   </head>
 
-  <body>
+  <body onload="">
     <!--NAV-->
 
     <!--MAIN CONTENT-->
@@ -54,11 +63,11 @@
             <br />
             <br />
             <label for="itemName">Item Name: </label>
-            <input id="itemName" type="text" />
+            <input id="itemName" type="text" maxlength="250" autocomplete="off" />
             <br />
             <br />
             <label for="assignee">Assignee: </label>
-            <input id="assignee" type="text" />
+            <input id="assignee" type="text" maxlength="30" onkeypress="return /^[a-zA-Z\s]*$/i.test(event.key)" autocomplete="off" />
             <br />
             <br />
             <label for="itemPriority">Select a priority: </label>
@@ -71,8 +80,8 @@
             <br />
             <label for="completed">Completion Status: </label>
             <select id="completed">
-              <option value="true">True</option>
               <option value="false">False</option>
+              <option value="true">True</option>
             </select>
             <br />
             <br />
@@ -81,7 +90,7 @@
           </div>
 
           <div id="myList">
-            <button class="button" onclick="clickButton()">
+            <button class="button" id="listGenerated" onclick="clickButton()">
               Let's fetch the items in your list!
             </button>
             <h3>Current Task(s)</h3>
