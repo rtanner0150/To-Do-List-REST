@@ -54,7 +54,7 @@ function clickButton() {
           body[i].completionStatus  + "<br>" +
           '<a id="edit" href="./edit.html?id=' +
           body[i]._id +
-          '"><i class="fas fa-pen-alt fa-lg"></i>edit</a>' + "<br>";
+          '"><i class="fas fa-pen-alt fa-2x"></i></a>' + "<br>";
       }
       
       console.log("Didn't think we would make it this far");
