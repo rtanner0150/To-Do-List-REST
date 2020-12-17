@@ -54,11 +54,11 @@
             <br />
             <br />
             <label for="itemName">Item Name: </label>
-            <input id="itemName" type="text" maxlength="100" />
+            <input id="itemName" type="text" maxlength="250" autocomplete="off" />
             <br />
             <br />
             <label for="assignee">Assignee: </label>
-            <input id="assignee" type="text" maxlength="30" onkeypress="return /^[a-zA-Z\s]*$/i.test(event.key)" />
+            <input id="assignee" type="text" maxlength="30" onkeypress="return /^[a-zA-Z\s]*$/i.test(event.key)" autocomplete="off" />
             <br />
             <br />
             <label for="itemPriority">Select a priority: </label>
@@ -142,5 +142,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="todo.js"></script>
+    
   </body>
 </html>
